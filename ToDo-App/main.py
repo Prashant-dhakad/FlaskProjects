@@ -6,7 +6,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] =  'sqlite:///db.sqlite3'
 db = SQLAlchemy(app)
 
 
-
 @app.route("/")
 @app.route("/index")
 def index():
