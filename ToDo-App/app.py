@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -16,6 +16,12 @@ class Todo(db.Model):
 @app.route("/index")
 def index():
     return render_template('dashboard/index.html')
+
+
+@app.route("/add")
+def add():
+    return render_template(url_for('index'))
+
 
 
 @app.route("/about")
