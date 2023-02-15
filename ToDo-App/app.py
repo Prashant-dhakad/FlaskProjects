@@ -34,6 +34,13 @@ def delete(id):
     db.session.commit()
     return redirect(url_for('index'))
 
+@app.route('/update/<int:id>')
+def update(id):
+    todo = Todo.query.filter_by(id=id).first()
+    todo.complete = not todo.complete
+    db.session.commit()
+    return redirect(url_for('index'))
+
 
 @app.route("/about")
 def about():
