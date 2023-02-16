@@ -27,12 +27,14 @@ def add():
     db.session.commit()
     return redirect(url_for('index'))
 
+
 @app.route('/delete/<int:id>')
 def delete(id):
     todo = Todo.query.filter_by(id=id).first()
     db.session.delete(todo)
     db.session.commit()
     return redirect(url_for('index'))
+
 
 @app.route('/update/<int:id>')
 def update(id):
