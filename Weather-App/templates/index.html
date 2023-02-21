@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>What's the weather like?</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
 </head>
+
 <body>
     <section class="hero is-primary">
         <div class="hero-body">
@@ -22,10 +24,9 @@
             <div class="columns">
                 <div class="column is-offset-4 is-4">
                     <form method="POST">
-                       
                         <div class="field has-addons">
                             <div class="control is-expanded">
-                               
+                                <input class="input" name="city" type="text" placeholder="City Name">
                             </div>
                             <div class="control">
                                 <button class="button is-info">
@@ -42,7 +43,7 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-offset-4 is-4">
-                    
+                    {% for weather in weather_data %}
                     <div class="box">
                         <article class="media">
                             <div class="media-left">
@@ -55,14 +56,14 @@
                                     <p>
                                         <span class="title">{{ weather.city }}</span>
                                         <br>
-                                        <span class="subtitle">{{ weather.temperature }}</span>
+                                        <span class="subtitle">{{ weather.temperature }}° F</span>
                                         <br> {{ weather.description }}
                                     </p>
                                 </div>
                             </div>
                         </article>
                     </div>
-                    
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -70,4 +71,5 @@
     <footer class="footer">
     </footer>
 </body>
+
 </html>
